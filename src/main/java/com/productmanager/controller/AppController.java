@@ -29,13 +29,13 @@ public class AppController  {
 	private ProductService service;
 	
 	
-	@RequestMapping("/")
+	@RequestMapping("/login")
 	public String viewLoginPage(LoginForm loginForm) {		
 		return "login";
 	}
 	
 	
-	@PostMapping("/")
+	@PostMapping("/login")
     public String validateLoginInfo(Model model, @Valid LoginForm loginForm, BindingResult bindingResult) {
         /*if (bindingResult.hasErrors()) {
             return "login";
@@ -47,11 +47,11 @@ public class AppController  {
         	return "login";
         }
   
-        return "redirect:/home";
+        return "redirect:/";
     }
 	
 
-	@RequestMapping("/home")
+	@RequestMapping("/")
 	public String viewHomePage(Model model, @Param("keyword") String keyword) {
 		List<Product> listProducts = service.listAll(keyword);
 		model.addAttribute("listProducts", listProducts);
@@ -72,7 +72,7 @@ public class AppController  {
 	public String saveProduct(@ModelAttribute("product") Product product) {
 		service.save(product);
 		
-		return "redirect:/home";
+		return "redirect:/";
 	}
 	
 	@RequestMapping("/edit/{id}")
@@ -89,7 +89,7 @@ public class AppController  {
 	public String deleteProduct(@PathVariable(name = "id") Long id) {
 		service.delete(id);
 		
-		return "redirect:/home";
+		return "redirect:/";
 	}
 	
 

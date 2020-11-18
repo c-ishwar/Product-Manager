@@ -14,7 +14,7 @@
 	<version>2.0</version>
 	<name>ProductManager</name>
 	<description>Product Manager Project</description>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	
 	<properties>
 		<java.version>1.8</java.version>
